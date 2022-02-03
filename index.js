@@ -19,12 +19,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredPrompt.prompt();
   
 });
-// var option = {      
-//   animation: true,
-//   delay: 4000
-// };
-// function Toasty() {
-//   var toastHTMLElement = document.getElementById("EpicToast");
-//   var toastElement = new bootstrap.Toast(toastHTMLElement, option);
-//   toastElement.show();
-// }
+var option = {      
+  animation: true,
+  delay: 4000
+};
+function Toasty() {
+  var toastHTMLElement = document.getElementById("EpicToast");
+  var toastElement = new bootstrap.Toast(toastHTMLElement, option);
+  toastElement.show();
+}
