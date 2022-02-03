@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
   
   }
-
+  Toasty();
   // Initialize deferredPrompt for use later to show browser install prompt.
 let deferredPrompt;
 
