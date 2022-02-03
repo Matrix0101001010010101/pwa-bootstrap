@@ -9,7 +9,7 @@ this.addEventListener('install', function(event) {
         '/pwa-bootstrap/agadir.jpeg',
         '/pwa-bootstrap/tanger.jpeg',
         '/pwa-bootstrap/marakech.jpeg',
-        '/pwa-bootstrap/icon1.png',
+        // '/pwa-bootstrap/icon1.png',
         '/pwa-bootstrap/icon-192x192.png',
         '/pwa-bootstrap/icon-256x256.png',
         '/pwa-bootstrap/icon-384x384.png',
