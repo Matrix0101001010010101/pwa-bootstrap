@@ -28,3 +28,21 @@ function Toasty() {
   var toastElement = new bootstrap.Toast(toastHTMLElement, option);
   toastElement.show();
 }
+function meNotifier() {
+  Notification.requestPermission().then(function (result) {
+      console.log("permission donnée");
+  });
+}
+
+function envoyerNotificationThreadUtilisateur() {
+  if (Notification.permission === 'granted') {
+      var options = {
+          body: 'Ma première notification depuis index.js',
+          requireInteraction: true
+      };
+
+      const notification = new Notification('Hello depuis index.js', options);
+  } else {
+      console.log("aucune notification car non permis");
+  }
+}

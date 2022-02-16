@@ -4,7 +4,7 @@ this.addEventListener('install', function(event) {
       return cache.addAll([
       
         '/pwa-bootstrap/index.html',
-      
+        '/pwa-bootstrap/pagehorsligne.html',
         '/pwa-bootstrap/index.js',
         '/pwa-bootstrap/agadir.jpeg',
         '/pwa-bootstrap/tanger.jpeg',
@@ -41,5 +41,41 @@ this.addEventListener('fetch', function(event) {
   }));
 });
 
+async function cacheOrNetwork(request) {
+  try {
+    return await fromCache(request);
+  } catch {
+    return await fetch(request);
+  }
+};
 
+async function fromCache(request) {
+  const cache = await caches.open('v1');
+  const matching = await cache.match(request);
+  return matching || Promise.reject('no-match');
+}
+
+function fallbackVersPageHorsLigne() {
+return caches.match("/pwa-bootstrap/pagehorsligne.html");
+}
+
+
+self.addEventListener('push', function (e) {
+  console.log("push recu: " + e);
+  envoyerNotification();
+});
+
+
+function envoyerNotification() {
+  if (Notification.permission === 'granted') {
+      var options = {
+          body: 'Ma première notification',
+          requireInteraction: true
+      };
+
+      self.registration.showNotification('Hello', options);
+  } else {
+      console.log("aucune notification car non permis");
+  }
+}
 
